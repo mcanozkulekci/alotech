@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tracks.views import get_random_artist
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('tracks/<str:genre>/', get_random_artist, name='get_random_artist'),
 ]
