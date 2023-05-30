@@ -51,7 +51,6 @@ def get_random_artist(request, genre):
             # Prepare the response data
             response_data = {
                 'genre':genre,
-                'artist': random_artist,
                 'tracks': []
             }
 
@@ -64,7 +63,8 @@ def get_random_artist(request, genre):
                 }
                 response_data['tracks'].append(track_info)
 
-        return render(request,"results.html",response_data)
+        return render(request,"tracklist.html",response_data)
+     
 
     return JsonResponse({'error': 'No artist found for the given genre.'})
 

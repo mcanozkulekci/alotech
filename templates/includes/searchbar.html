@@ -1,7 +1,7 @@
 <div class="row mt-4">
   <div class="col-md-6" style="margin-left: 30px">
     <h1>TracksUI</h1>
-    <form method="GET">
+    <form action="tracks/{{genre}}" method="GET">
       <div class="input-group">
         <input
           type="text"
@@ -10,13 +10,7 @@
           placeholder="Enter genre"
         />
         <div class="input-group-append">
-          <button
-            class="btn btn-primary"
-            type="submit"
-            href="/tracks/{{genre}}"
-          >
-            Search
-          </button>
+          <button class="btn btn-primary" type="submit">Search</button>
         </div>
       </div>
     </form>

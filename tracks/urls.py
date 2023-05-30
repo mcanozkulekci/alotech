@@ -1,12 +1,10 @@
+# tracks/urls.py
+
 from django.urls import path
+from .views import get_random_artist
 
-from . import views
+app_name = 'tracks'
 
-
-app_name= 'tracks'
 urlpatterns = [
-
-    path('<str:genre>/', views.get_random_artist, name='get_random_artist'),
-    
-
+    path('<str:genre>/', get_random_artist, name='get_random_artist'),
 ]

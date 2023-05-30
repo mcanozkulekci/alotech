@@ -20,7 +20,8 @@ from tracks.views import index
 
 
 urlpatterns = [
-    path('tracks/', include('tracks.urls')),
+   
     path('', index,name='index'),
+    path('tracks/', include('tracks.urls')),
     # path('tracks/<str:genre>/', get_random_artist, name='get_random_artist'),
 ]
