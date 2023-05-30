@@ -1,13 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.shortcuts import render
 
 import json
 import random
 import spotipy
 import os
 from spotipy.oauth2 import SpotifyClientCredentials
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -26,6 +27,7 @@ def get_random_artist(request, genre):
 
     # Pick a random artist from the list
     random_artist = random.choice(genre_artists) if genre_artists else None
+
 
     if random_artist:
         # Initialize the Spotify API client
@@ -48,6 +50,7 @@ def get_random_artist(request, genre):
 
             # Prepare the response data
             response_data = {
+                'genre':genre,
                 'artist': random_artist,
                 'tracks': []
             }
@@ -61,6 +64,11 @@ def get_random_artist(request, genre):
                 }
                 response_data['tracks'].append(track_info)
 
-            return JsonResponse(response_data)
+        return render(request,"results.html",response_data)
 
     return JsonResponse({'error': 'No artist found for the given genre.'})
+
+
+
+def index(request): 
+    return render(request,'index.html')
