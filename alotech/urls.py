@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from tracks.views import get_random_artist
 from tracks.views import index
+
 
 
 urlpatterns = [
    
     path('', index,name='index'),
     path('tracks/', include('tracks.urls')),
-    # path('tracks/<str:genre>/', get_random_artist, name='get_random_artist'),
+
 ]

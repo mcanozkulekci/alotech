@@ -16,7 +16,6 @@ client_id = os.getenv("SPOTIFY_CLIENT_ID")
 client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
 
 
-print(client_id,client_secret)
 def get_random_artist(request, genre):
     # Load the genres data from the JSON file
     with open('alotech/genres.json') as file:
