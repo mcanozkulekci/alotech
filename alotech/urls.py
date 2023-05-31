@@ -20,8 +20,7 @@ from tracks.views import index
 
 
 urlpatterns = [
-   
-    path('', index,name='index'),
-    path('tracks/', include('tracks.urls')),
+
+    path('', include('tracks.urls')),
 
 ]
